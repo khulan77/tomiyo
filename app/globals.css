@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 224 71% 2%; /* Маш гүн бараан хөх-хар */
+  --foreground: 213 31% 91%;
+}
+
+body {
+  background-color: #020408; /* Үндсэн арын фон */
+  color: white;
+  /* Зөөлөн гэрэлтэлт нэмэх (Optional) */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.05) 0px, transparent 50%);
+}
+
+/* Scrollbar-ийг фонтойгоо ижилхэн болгох */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #020408;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}

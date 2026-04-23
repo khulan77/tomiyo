@@ -25,8 +25,8 @@ export default function Home() {
         {/* Үндсэн контент scroll болдог хэсэг */}
         <main className="flex-1 overflow-y-auto custom-scrollbar">
           {/* Контентыг голлуулж, хангалттай зай авч өгнө */}
-          <div className="max-w-[1200px] mx-auto p-8">
-            <div className="flex flex-col gap-24">
+          <div className=" mx-auto">
+            <div className="flex flex-col ">
               
               {/* Hero хэсэг - Маш том, хүчирхэг */}
               <section>

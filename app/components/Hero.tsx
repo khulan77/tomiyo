@@ -1,126 +1,115 @@
 "use client";
+import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Binary } from "lucide-react";
+import { ArrowRight, Microscope, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ScientificBackground from "./ScientificBackground";
 
 export default function Hero() {
-  // Зураг дээрх алдартай томьёонуудын цуглуулга
-  const formulas = [
-    { text: "E=mc^2", x: "20%", y: "45%", size: "text-4xl", delay: 0, glow: "shadow-blue-500/50" },
-    { text: "\\int f(x)dx", x: "10%", y: "20%", size: "text-xl", delay: 0.5, glow: "shadow-cyan-500/30" },
-    { text: "\\nabla \\times B = 0", x: "70%", y: "25%", size: "text-xl", delay: 1, glow: "shadow-blue-400/40" },
-    { text: "H\\psi = E\\psi", x: "65%", y: "55%", size: "text-lg", delay: 1.5, glow: "shadow-indigo-500/30" },
-    { text: "\\Delta p \\Delta x \\ge \\frac{h}{4\\pi}", x: "30%", y: "75%", size: "text-lg", delay: 2, glow: "shadow-purple-500/30" },
-    { text: "\\sin(x)", x: "40%", y: "15%", size: "text-md", delay: 2.5, glow: "shadow-blue-300/20" },
-  ];
-
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#020408]">
-      {/* Арын фонны эффектүүд */}
-      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 blur-[150px] rounded-full -z-10" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-600/10 blur-[130px] rounded-full -z-10" />
+    <section className="relative min-h-screen w-full flex items-center overflow-hidden bg-[#020617] selection:bg-blue-500/30">
+      
+      {/* 1. BACKGROUND LAYER */}
+      <div className="absolute inset-0 z-0">
+        <ScientificBackground />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-10" />
+      </div>
 
-      <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="container mx-auto p-6 relative z-10 flex flex-col lg:flex-row items-center gap-16 lg:justify-between">
         
-        {/* ЗҮҮН ТАЛ: Текст контент */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
+        {/* ЗҮҮН ТАЛ: CONTENT */}
+        <motion.div 
+          className="flex-1 space-y-10"
+          initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex-1 z-10"
         >
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-blue-500/20 bg-blue-500/5 mb-8 backdrop-blur-md">
-            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-            <span className="text-[11px] font-bold tracking-[3px] text-blue-400 uppercase">
+          <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/5 backdrop-blur-2xl mb-8">
+            <Sparkles className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
+            <span className="text-[10px] font-black tracking-[4px] text-blue-400 uppercase">
               Terminal Alpha-7 Active
             </span>
           </div>
 
-          <h1 className="text-[56px] md:text-[88px] font-extrabold tracking-tighter leading-[0.9] text-white mb-8">
-            The Future of <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 italic pr-4">
-              Discovery
-            </span>
-          </h1>
+        <h1 className="text-[45px] lg:text-[85px] font-extrabold tracking-tighter leading-[0.9] text-white">
+  MASTER THE <br />
+  <span className="relative inline-block mt-2 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.7)] drop-shadow-[0_0_35px_rgba(59,130,246,0.5)]">
+    Universe.
+    <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-gradient-to-r from-blue-500/0 via-blue-400 to-blue-500/0 blur-[1px]" />
+  </span>
+</h1>
 
-          <p className="text-slate-400 text-lg md:text-xl max-w-xl font-light leading-relaxed mb-12">
-            Welcome to the Research Core. Engage with advanced simulations across 
-            fundamental STEM disciplines to push the boundaries of collective knowledge.
-          </p>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-slate-400 text-lg md:text-xl max-w-xl font-light leading-relaxed border-l-2 border-blue-600/30 pl-8"
+          >
+            Шинжлэх ухааны хамгийн нарийн төвөгтэй томьёо, туршилтуудыг дижитал орчинд 
+            бодитоор мэдэр. Бид мэдлэгийн хязгаарыг хамтдаа тэлнэ.
+          </motion.p>
 
-          <div className="flex flex-wrap items-center gap-6">
-            <Button className="h-16 px-10 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-bold shadow-[0_0_30px_rgba(37,99,235,0.3)] transition-all flex items-center gap-3 group">
-              Start Exploration 
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="flex flex-wrap items-center gap-8 pt-4"
+          >
+            <Button className="h-16 px-12 bg-white text-black hover:bg-blue-50 transition-all rounded-[20px] font-black text-sm uppercase tracking-widest flex items-center gap-3 group shadow-2xl">
+              Explore Now 
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </Button>
-            <Button variant="outline" className="h-16 px-10 rounded-2xl border-white/10 bg-white/5 text-white hover:bg-white/10 font-medium">
-              View Archive
-            </Button>
+            
+            <button className="flex items-center gap-4 text-slate-400 font-bold hover:text-white transition-all group">
+              <div className="w-12 h-12 rounded-2xl border border-white/10 flex items-center justify-center group-hover:border-blue-500/50 group-hover:bg-blue-500/5 transition-all">
+                <Microscope className="w-5 h-5" />
+              </div>
+              <span className="text-sm tracking-widest uppercase">Documentation</span>
+            </button>
+          </motion.div>
+        </motion.div>
+
+        {/* БАРУУН ТАЛ: ЗУРГИЙГ УУСГАЖ БАЙРЛУУЛАХ ХЭСЭГ */}
+        <motion.div 
+          className="relative flex-1 w-full max-w-[600px] aspect-square lg:aspect-auto lg:h-[600px] flex justify-center items-center"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          {/* Зургийн ардах гэрэлтэлт (Glow effect) */}
+          <div className="absolute inset-0 bg-blue-500/20 blur-[120px] rounded-full animate-pulse" />
+          
+          {/* Зургийн хүрээ (Glassmorphism Container) */}
+          <div className="relative w-full h-full p-4 lg:p-8 flex items-center justify-center">
+            <div className="relative w-full h-full rounded-[40px] lg:rounded-[60px] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl group">
+              
+              {/* Зургийг уусгах Mask Overlay */}
+              <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-[#020617]/20 via-transparent to-[#020617]/20" />
+
+              {/* Үндсэн зураг */}
+              <motion.img 
+                src="screen.png" 
+                alt="Visualization" 
+                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
+                animate={{
+                    y: [0, -10, 0]
+                }}
+                transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                }}
+              />
+
+              {/* Зургийн дээрх шинжлэх ухааны Overlay элемент */}
+              <div className="absolute top-6 right-6 z-20 px-4 py-2 rounded-xl border border-white/20 bg-black/40 backdrop-blur-md">
+                <span className="text-[10px] text-blue-400 font-mono tracking-widest uppercase">Visualizing Data...</span>
+              </div>
+            </div>
           </div>
         </motion.div>
 
-        {/* БАРУУН ТАЛ: Зураг дээрх 3D Томьёоны дүрслэл (Яг хэвээрээ) */}
-        <div className="relative flex-1 w-full h-[500px] lg:h-[600px] flex justify-center items-center">
-          
-          {/* Төв дэх гэрэлтсэн цэнхэр мананцар (Atmosphere) */}
-          <div className="absolute w-[400px] h-[400px] bg-blue-500/20 blur-[120px] rounded-full animate-pulse" />
-
-          {/* Холбогч нарийн шугамууд (SVG) */}
-          <svg className="absolute inset-0 w-full h-full opacity-30 pointer-events-none">
-            <motion.circle 
-              cx="50%" cy="50%" r="180" 
-              stroke="url(#grad)" strokeWidth="0.5" fill="none"
-              strokeDasharray="5,10"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-            />
-            <defs>
-              <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.2" />
-                <stop offset="100%" stopColor="#a855f7" stopOpacity="0.2" />
-              </linearGradient>
-            </defs>
-          </svg>
-
-          {/* Томьёонууд (Floating Formulas) */}
-          {formulas.map((formula, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ 
-                opacity: [0.4, 1, 0.4],
-                scale: [0.95, 1.05, 0.95],
-                y: [0, -20, 0],
-                x: [0, 10, 0]
-              }}
-              transition={{ 
-                duration: 5 + i, 
-                repeat: Infinity, 
-                delay: formula.delay,
-                ease: "easeInOut" 
-              }}
-              className={`absolute font-serif font-medium text-blue-100 ${formula.size} cursor-default select-none`}
-              style={{ top: formula.y, left: formula.x }}
-            >
-              <span className={`drop-shadow-[0_0_15px_rgba(59,130,246,0.8)]`}>
-                {formula.text}
-              </span>
-            </motion.div>
-          ))}
-
-          {/* Төв дэх хамгийн том $E=mc^2$ */}
-          <motion.div
-            animate={{ 
-              scale: [1, 1.1, 1],
-              filter: ["brightness(1)", "brightness(1.5)", "brightness(1)"]
-            }}
-            transition={{ duration: 4, repeat: Infinity }}
-            className="z-20 text-[64px] font-serif font-bold text-white drop-shadow-[0_0_35px_rgba(59,130,246,1)]"
-          >
-            $E=mc^2$
-          </motion.div>
-
-        </div>
       </div>
     </section>
   );
